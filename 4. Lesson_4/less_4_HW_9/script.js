@@ -1,18 +1,33 @@
-// ДЗ 4. Математичні операції
-
-let firstCustomerNumber = +prompt('Put your first number');
-let secondCustomerNumber = +prompt('Put your second number');
+// ДЗ 9. switch...case
 
 
-function customerNumbersCount(firstNumber, secondNumber) {
+let numOrStr = prompt(`input number or string`);
+console.log(numOrStr);
 
-    let numbersAddition = (firstNumber + secondNumber);
-    let numbersSubstraction = (firstNumber - secondNumber);
-    let numbersMultiplication = (firstNumber * secondNumber);
 
-    let numbersDividing = (firstNumber / secondNumber).toFixed(3);
-
-    alert(`Сумма чисел ${firstNumber} и ${secondNumber} равна: ${numbersAddition}. \nРазность: ${numbersSubstraction}. \nПроизведение: ${numbersMultiplication}. \nЧастное: ${numbersDividing}`);
+switch (true) {
+    case numOrStr === null:
+        console.log(`You pressed Cancel`);
+        break;
+    case numOrStr.trim() == '':
+        console.log(`Empty String`);
+        break;
+    case isNaN(+numOrStr):
+        console.log(`number is Ba_NaN`);
+        break;
+    default:
+        console.log(`OK!`)
+        break;
 }
 
-customerNumbersCount(firstCustomerNumber, secondCustomerNumber);
+
+// if (numOrStr === null) {
+//     console.log('ви скасували')
+// } else if (numOrStr.trim() === '') {
+//     console.log('Empty String');
+
+// } else if (isNaN(+numOrStr)) {
+//     console.log(' number is Ba_NaN')
+// } else {
+//     console.log('OK!')
+// }
