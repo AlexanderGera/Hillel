@@ -1,25 +1,80 @@
-// ДЗ 10. Написання циклів
+// ДЗ 11. Написання циклів
 
-// 1. Вивести на сторінку в один рядок через кому числа від 10 до 20.
+// 1. Вивести числа від 20 до 30 через пропуск, використовуючи крок 0,5 (20 20,5 21 21,5….).
 
 
 let result = '';
 
-for (let i = 10; i <= 20; i++) {
-
-
-    if (i == 20) {
-        result += i;
-    } else {
-        result += `${i}, `;
-
-    }
+for (let i = 20; i <= 30; i+=0.5) {
+result += `${i}, `;
 }
 
-console.log(`Задание 1: ${result}`);
+let newResult = result.split(',').join(' ');
+console.log(`Задание 1: ${newResult}`);
 
 
 
+// 2. Один долар коштує 27 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів.
+
+
+let usCurrency = 27;
+let usCurrencyExchangeResult = '';
+
+for (let i = 10; i <= 100; i += 10) {
+    usCurrencyExchangeResult += `${i} USD равно ${i * usCurrency}\n`;
+
+}
+console.log(`Задание 2:\n${usCurrencyExchangeResult}`);
+
+
+
+
+
+// //4. Дане ціле число. З'ясувати, чи є воно простим (простим називається число, більше 1, які не мають інших дільників крім 1 і себе).
+
+// let customerNumber = +prompt('Put the number');
+// for (let i = 2; i < customerNumber; i++) {
+
+        
+
+//     if (!(customerNumber / i == 1) && !((customerNumber % i == 0))) {
+        
+//         console.log('prostoe ' + i);
+//     }
+//     else {
+//         console.log('NE Prostoe' + i);
+//     }
+    
+// }
+
+
+
+
+
+// 5. Дане деяке число. Визначити, чи можна одержати це число шляхом зведення числа 3 у деякий ступінь.
+//(Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
+
+let customerNumberforDividing = +prompt('Put the number');
+
+let devider = 3;
+let resultDegree = 0;
+let iterationNumber;
+for (let i = 0; i <= resultDegree; i++) {
+
+    resultDegree = customerNumberforDividing / 3;
+    // console.log(`получилось число ${resultDegree} количество итераций ${i + 1}`)
+    customerNumberforDividing = resultDegree;
+    if ((Number.isInteger(resultDegree)) && (resultDegree == 1))
+        console.log(`yes. it's ${devider} in ${i + 1} degree. That is ${devider ** (i + 1)}`);
+}
+
+
+
+
+
+
+
+/*
 //2. Вивести квадрати чисел від 10 до 20.
 
 
@@ -165,3 +220,5 @@ for (let i = 1; i <= 10; i++) {
 
 let date = new Date();
 console.log(date);
+
+*/
