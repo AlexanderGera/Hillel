@@ -9,13 +9,19 @@ const array = [1, 2, 3, 4, 5, 6, 7];
 const array1 = ['a', 'b', 'c', 'd', 'e', 'f', 'j'];
 const array2 = [111, 222, 333, 444, 555, 666, 777];
 
-let customerArrayElementDelay = +prompt('Put index of element for dellay');
 
-function arrayRemoveElement(arrayName, elementIndex) {
-    arrayName.splice(elementIndex, 1);
+function arrayRemoveElement(arrayName, elementName) {
+    arrayName.find(function (element) {
+        if (elementName == element) {
+            arrayName.splice(arrayName.indexOf(elementName), 1);
+        }
+    });
+
     console.log(arrayName);
 
 }
 
-arrayRemoveElement(array2, customerArrayElementDelay);
+
+
+arrayRemoveElement(array, 6);
 
