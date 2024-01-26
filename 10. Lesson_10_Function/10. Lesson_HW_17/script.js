@@ -1,15 +1,15 @@
-// ДЗ 17. Написати декілька функцій
+// // ДЗ 17. Написати декілька функцій
 
-//1. Дано масив з елементами різних типів.Створити функцію
-// яка вираховує середнє арифметичне лише числових елементів даного масиву.
+// //1. Дано масив з елементами різних типів.Створити функцію
+// // яка вираховує середнє арифметичне лише числових елементів даного масиву.
 
 let exampleArray = ['a', 'b', 1, 2, 'c', 3, 'd', 4, 'e', 10]
+let exampleArrayNew = ['a', 'b', 1, 2, 'c', 3, 'd', 4, 'e', 11]
 
-let numberCounter = 0;
-let numberResult = 0;
-let avaregeResult = 0;
 
-function filterArray(arrToFilter) {
+function getAverage(arrToFilter) {
+    let numberCounter = 0; // они нужны только для задачи внутри функции
+    let numberResult = 0;
     arrToFilter.forEach(element => {
         if (!(isNaN(element))) {
             numberCounter++;
@@ -17,126 +17,165 @@ function filterArray(arrToFilter) {
         }
 
     });
+    return (numberResult / numberCounter).toFixed(2);
 
-    avaregeResult = numberResult / numberCounter;
-    console.log(`Задание 1: Среднее арифметическое ${avaregeResult}`)
-}
-
-// filterArray(exampleArray);
-
-//возможно можно сделать без объявления всех этих переменных.
-// Но я от них избавиться не смог.
-
-
-
-
-//2.  Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y,
-// рядок znak. У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).
-// Вивести результат математичної дії, вказаної в змінній znak.Обидва числа і знак виходять від користувача.
-
-
-/* КОММЕНТАРИИ
-Идея была такова
-все разбить на отдльеные функции:
-1. функции которые вызывают промпт
-2. функция которая проверяет на то чтобы вводили именно число
-3. функция которая выбирает какой символ был введен
-4. функция которая считает все.
-
-В результате фиаско - соединить все у меня не получается. Кроме этого не все работает даже отельно
-Кроме пункат 4 (как не странно).
-
-При запуске функции customersNumberCheck() внутри нее должна вызываться функция firstCustomerNumberCall()
-если проверка не пройдена она должна вызваться повторно, но почему-то вызывается только один раз.
-Даже если введен опять текст ( к примеру)
-
-1. У меня не получается сделать нормально проверку. 
-Проверки - Это то что мы делаем регулярно, проверки на вводимый тип данных.
-Но каждый раз я сталкиваюсь с проблемой. Я думаю я где-то не усвоил основной принцип.
-
-2. Как я понимаю при реализации задуманного не обойтись без "функций высшего порядка"
-о которых ты говорил.
-У меня не получается сделать так чтобы функция выводила функцию.
-
-Итого получается два вопроса: почему фунция при НЕ прохождении проверки вызывается повторно только раз
-и как правильно сделать чтобы функия вызывала функцию? 
-Подскажи в каком направлении мне "двигаться"?
-
-*/
-
-let firstCustomsNumber;
-let secondCustomsNumber;
-let customersOperator;
-let operatorsList;
-
-
-
-function firstCustomerNumberCall() {
-    firstCustomsNumber = prompt('Put first Number');
-}
-
-function secondCustomerNumberCall() {
-    secondCustomsNumber = prompt('Put second Number');
 }
 
 
+console.log(`Задание 1: Среднее арифметическое ${getAverage(exampleArrayNew)}`);
 
-function customersNumberCheck(firstNumber, secondNumber) {
-    firstCustomerNumberCall();
-    if ((firstNumber == null) || (firstNumber.trim() == '') || (isNaN(firstNumber))) {
-        // firstCustomerNumberCall();
-        console.log(firstNumber)
 
-    } else {
-        console.log(firstNumber)
-        secondCustomerNumberCall();
-        if ((secondNumber == null) || (secondNumber.trim() == '') || (isNaN(secondNumber))) {
-            secondCustomerNumberCall();
-        } else {
 
-            console.log(secondNumber);
-            console.log('ok');
 
-        }
+// //возможно можно сделать без объявления всех этих переменных.
+// // Но я от них избавиться не смог.
+
+
+
+
+// //2.  Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y,
+// // рядок znak. У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).
+// // Вивести результат математичної дії, вказаної в змінній znak.Обидва числа і знак виходять від користувача.
+
+
+
+
+const firstCustomsNumber = prompt('Put first Number');
+const secondCustomsNumber = prompt('Put second Number');
+const customersOperator = prompt(`Please put one of the followings operators: +, -, *, /, %, ^`);
+
+
+function doMath(x, znak, y) {
+    let numX = Number(x);
+    let numY = Number(y);
+    const operators = ['+', '-', '*', '/', '%', '^']; // этот массив можно заносить во внутрь функции
+    //т.к.он работает только внутри функции, на глобальном уровне он не нужен
+
+    // if (Number.isNaN(numX) || Number.isNaN(numY) || numX === 0 || numY === 0) {
+    //     console.log(`Not a Number or Zero`);
+    //     return; // если не будет ретерн то пойдет дальше (без него нужен Елс). retern останавливает выполнение
+    // }
+
+    //передал проверку фунции  
+
+    if (!isNumberValid(x) || !isNumberValid(y)) {
+        console.log(`Not a Number or Zero`);
+            return;
+    }
+
+    if (!operators.includes(znak)) {
+        console.log(`You put wrong operator`);
+        return;
+    }
+
+    if (znak === '+') {
+        return numX + numY;
+    }
+
+    if (znak === '-') {
+        return numX - numY;
+    }
+
+    if (znak === '*') {
+        return numX * numY;
+    }
+
+    if (znak === '/') {
+        return numX / numY;
+    }
+
+    if (znak === '%') {
+        return numX % numY;
+    }
+
+    if (znak === '^') {
+        return numX ** numY;
     }
 
 }
 
 
-
-customersNumberCheck(firstCustomsNumber, secondCustomsNumber);
-
-// сразу вопрос. я дико замучался с проверкой на число.Причем каждый раз как в первый.
-// Почему isNaN работает если я не привожу prompt к числуа Number.isNaN нет.
-// Хотя написано что лучше использовать Number.isNaN он типа более стабильный
+console.log(`Задание 2ю Результат: ${doMath(firstCustomsNumber, customersOperator, secondCustomsNumber)}`);
 
 
-// function operatorsCall () {
-//     customersOperator = prompt(`Please put one of the followings operators: +, -, *, /, %, ^`);
-// }
-// operatorsCall();
+function isNumberValid(usersData) { // функция проверки данных
+    let numData = Number(usersData); // приводим к числу агрумент
+
+    if (Number.isNaN(numData) || numData === 0) {
+        return false;
+    }
+
+    return true;
+
+}
 
 
-// firstCustomsNumber = +prompt('Put first Number');
 
 
-let operators = ['+', '-', '*', '/', '%', '^']
+// 3. Написати функцію заповнення даними користувача двомірного масиву.
+// Довжину основного масиву і внутрішніх масивів задає користувач.
+// Значення всіх елементів всіх масивів задає користувач.
 
 
-// operators.forEach(element => {
-//     if (customersOperator == element) {
-//         console.log(element);
-
-//     } else {
-//         operatorsCall();
-
-//     }
-// });
+let newArrayForModifying = [];
 
 
-// if (firstCustomsNumber == argument) {
-//     console.log(firstCustomsNumber)
-// } else {
-//     console.log(2 ^ 3 )
 
-// }
+let customersMainArrayLength = prompt(`Put Main Array's Length`);
+let customersNestedArrayNumbers = prompt(`Put the Numbers of Nested Arrays`);
+
+function arraysFilling(mainArLenfth, nestedArrNumber) {
+    // длина основного массива
+    newArrayForModifying.length = mainArLenfth;
+    // создаю вложенные массивы
+    for (let i = 0; i < nestedArrNumber; i++) {
+        newArrayForModifying[i] = [];
+    }
+
+    // заполняю вложенные массивы данными
+    for (let key in newArrayForModifying) {
+
+        let stringFromCustomers = prompt(`Write separated by commas NESTED Array's Elements`);
+        let stringFromCustomersToArray = stringFromCustomers.split(' ').join('').split(',');
+        newArrayForModifying[key] = stringFromCustomersToArray;
+
+    }
+
+    return newArrayForModifying;
+
+}
+
+
+
+console.log(arraysFilling(customersMainArrayLength, customersNestedArrayNumbers));
+
+
+
+//4. Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом.
+//'func(" hello world", ['l', 'd'])' поверне нам "heo wor".Вихідний рядок та символи для видалення задає користувач.
+
+
+
+
+let customerString = prompt(`Write your String`);
+
+let customersSimbolToExclude = prompt(`Write separated by commas Array's Elements`);
+
+function wordTransform(string, simbols) {
+
+    let customerStringToArray = string.split('');
+
+    let excludeSimbolsToArray = simbols.split(' ').join('').split(',');
+
+
+    let newArr = customerStringToArray.filter(element => !excludeSimbolsToArray.includes(element));
+    // часть !excludeSimbolsToArray.includes(element) вызвала у меня большие затруднения.
+    // Решение подсказал ЖПТ чат. Моемо Що Маемо. 
+    // Сначала я хотел это выполнить forEach но не получилось. Как мне кажется ошибки в синтаксисе.
+    return newArr.join('');
+
+}
+
+let result = (wordTransform(customerString, customersSimbolToExclude));
+
+console.log(result);
