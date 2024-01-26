@@ -6,7 +6,6 @@
 let exampleArray = ['a', 'b', 1, 2, 'c', 3, 'd', 4, 'e', 10]
 let exampleArrayNew = ['a', 'b', 1, 2, 'c', 3, 'd', 4, 'e', 11]
 
-
 function getAverage(arrToFilter) {
     let numberCounter = 0; // они нужны только для задачи внутри функции
     let numberResult = 0;
@@ -18,32 +17,21 @@ function getAverage(arrToFilter) {
 
     });
     return (numberResult / numberCounter).toFixed(2);
-
 }
-
 
 console.log(`Задание 1: Среднее арифметическое ${getAverage(exampleArrayNew)}`);
 
+//возможно можно сделать без объявления всех этих переменных.
+// Но я от них избавиться не смог.
 
 
-
-// //возможно можно сделать без объявления всех этих переменных.
-// // Но я от них избавиться не смог.
-
-
-
-
-// //2.  Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y,
-// // рядок znak. У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).
-// // Вивести результат математичної дії, вказаної в змінній znak.Обидва числа і знак виходять від користувача.
-
-
-
+//2.  Написати функцію doMath(x, znak, y), яка отримує 3 аргументи: числа x і y,
+// рядок znak. У змінній znak може бути: +, -, *, /, %, ^ (ступінь ).
+// Вивести результат математичної дії, вказаної в змінній znak.Обидва числа і знак виходять від користувача.
 
 const firstCustomsNumber = prompt('Put first Number');
 const secondCustomsNumber = prompt('Put second Number');
 const customersOperator = prompt(`Please put one of the followings operators: +, -, *, /, %, ^`);
-
 
 function doMath(x, znak, y) {
     let numX = Number(x);
@@ -104,22 +92,15 @@ function isNumberValid(usersData) { // функция проверки данн�
     if (Number.isNaN(numData) || numData === 0) {
         return false;
     }
-
     return true;
-
 }
-
-
 
 
 // 3. Написати функцію заповнення даними користувача двомірного масиву.
 // Довжину основного масиву і внутрішніх масивів задає користувач.
 // Значення всіх елементів всіх масивів задає користувач.
 
-
 let newArrayForModifying = [];
-
-
 
 let customersMainArrayLength = prompt(`Put Main Array's Length`);
 let customersNestedArrayNumbers = prompt(`Put the Numbers of Nested Arrays`);
@@ -138,42 +119,29 @@ function arraysFilling(mainArLenfth, nestedArrNumber) {
         let stringFromCustomers = prompt(`Write separated by commas NESTED Array's Elements`);
         let stringFromCustomersToArray = stringFromCustomers.split(' ').join('').split(',');
         newArrayForModifying[key] = stringFromCustomersToArray;
-
     }
-
     return newArrayForModifying;
-
 }
 
-
-
 console.log(arraysFilling(customersMainArrayLength, customersNestedArrayNumbers));
-
 
 
 //4. Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом.
 //'func(" hello world", ['l', 'd'])' поверне нам "heo wor".Вихідний рядок та символи для видалення задає користувач.
 
-
-
-
 let customerString = prompt(`Write your String`);
-
 let customersSimbolToExclude = prompt(`Write separated by commas Array's Elements`);
 
 function wordTransform(string, simbols) {
-
     let customerStringToArray = string.split('');
-
     let excludeSimbolsToArray = simbols.split(' ').join('').split(',');
-
 
     let newArr = customerStringToArray.filter(element => !excludeSimbolsToArray.includes(element));
     // часть !excludeSimbolsToArray.includes(element) вызвала у меня большие затруднения.
     // Решение подсказал ЖПТ чат. Моемо Що Маемо. 
     // Сначала я хотел это выполнить forEach но не получилось. Как мне кажется ошибки в синтаксисе.
+    
     return newArr.join('');
-
 }
 
 let result = (wordTransform(customerString, customersSimbolToExclude));
