@@ -137,6 +137,13 @@ function wordTransform(string, simbols) {
     let excludeSimbolsToArray = simbols.split(' ').join('').split(',');
 
     let newArr = customerStringToArray.filter(element => !excludeSimbolsToArray.includes(element));
+    // filter делает копию из значений массива element которые прошли тест на соответствие
+    //include определяет включает ли в себя массив excludeSimbolsToArray значения 
+    // из проверяемого значения и выдает false/true
+    // если элемент есть то true (которое преобразов !. в false)
+    // а если false то filter на этом значении не срабатывает и не копирует элемент в новый массив
+
+
     // часть !excludeSimbolsToArray.includes(element) вызвала у меня большие затруднения.
     // Решение подсказал ЖПТ чат. Моемо Що Маемо. 
     // Сначала я хотел это выполнить forEach но не получилось. Как мне кажется ошибки в синтаксисе.
