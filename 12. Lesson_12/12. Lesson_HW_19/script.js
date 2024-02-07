@@ -20,7 +20,6 @@ function numberCount(number) {
 let someNumber = numberCount(1);
 someNumber(2);
 someNumber(3);
-
 console.log(someNumber(4));
 console.log(someNumber(5));
 console.log(someNumber(5));
