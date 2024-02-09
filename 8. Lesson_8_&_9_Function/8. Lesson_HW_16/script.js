@@ -4,9 +4,27 @@
 // Реалізуйте функцію generateKey(length, characters),
 // яка повертає рядок випадкових символів із набору characters довжиною length.span >
 
-    Наприклад:
+// Наприклад:
 
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-const key = generateKey(16, characters);
-console.log(key); // eg599gb60q926j8i
+function generateKey(length, string) {
+    let arr = string.split('');
+    let randomNumber;
+    let randomString = '';
+
+    for (let i = 1; i <= length; i++) {
+        randomNumber = Math.floor(Math.random() * (arr.length));
+        randomString += arr.slice(randomNumber, randomNumber + 1);
+        
+        
+    }
+    return randomString;
+}
+
+let smtngToShow = generateKey(25, characters);
+
+console.log(smtngToShow);
+
+
+
