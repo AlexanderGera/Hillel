@@ -1,4 +1,4 @@
-// ДЗ 15. Реалізуйте функцію removeElement
+// ДЗ 16. Реалізуйте функцію generateKey
 
 
 // Реалізуйте функцію generateKey(length, characters),
