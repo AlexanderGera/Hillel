@@ -9,29 +9,22 @@
     Методи:
 конструктор, який приймає два параметри: імʼя та стать.
 */
-// let accNumber = 1;
+
 
 class Person {
     constructor(personName, personGender) {
         this.personName = personName;
         this.personGender = personGender;
-        // this.inhabitantNumber = accNumber++;
+
     }
 
-    // static getInhabitantNumber() {
-    //     return accNumber;
-    // }
-    //
-    // showPersonsNumber() {
-    //     console.log(`${this.personName} is customer number ${this.inhabitantNumber}`);
-    // }
 
 }
 
 
-let theFirstNewInhabitant = new Person('Veronique', 'femail');
-let theSecondNewInhabitant = new Person('Alex', 'mail');
-let theThirdNewInhabitant = new Person('Pavel', 'mail');
+let theFirstNewInhabitant = new Person('Veronique', 'female');
+let theSecondNewInhabitant = new Person('Alex', 'male');
+let theThirdNewInhabitant = new Person('Pavel', 'male');
 
 
 /*
