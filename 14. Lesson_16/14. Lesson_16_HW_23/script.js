@@ -12,21 +12,15 @@ class Student {
         this.name = name;
         this.surname = surname;
         this.yearOfBirth = yearOfBirth;
-
-        // this.marks = marks;
+        this.marks = marks;
         this.attendance.length = 25;
     }
-
-    // addMarks(marks) {
-    //     for (let i = 0; i < arguments.length; i++) {
-    //         this.marks.push(arguments[i]);
-    //     }
-    // };
 
     getAge() {
         let currentYear = new Date().getFullYear();
         return currentYear - this.yearOfBirth;
     }
+
     getAverageMark() {
         let summa = 0;
         let counter = 0;
@@ -34,9 +28,10 @@ class Student {
             summa += element;
             counter++;
         })
-        return summa / counter;
+        return (summa / counter).toFixed(1);
     }
-    checkAndFillAttendance(someNumber) {
+
+    fillInnAttendance(someNumber) {
         for (let i = 0; i < this.attendance.length; i++) {
             if (this.attendance[i] == undefined) {
                 this.attendance[i] = someNumber;
@@ -45,24 +40,74 @@ class Student {
         }
         console.log(this.attendance);
     }
+
+    lerningAndVisitedDaysCount() {
+        let lerningDaysCounter = 0;
+        let visitedDaysCounter = 0;
+        this.attendance.forEach(elements => {
+            if (elements != undefined) {
+                lerningDaysCounter++;
+                if (elements) {
+                    visitedDaysCounter++;
+                }
+            }
+        })
+        return (visitedDaysCounter / lerningDaysCounter).toFixed(1);
+
+    }
+
+    summary() {
+        let averageMark = this.getAverageMark();
+        let lerningAndVisitedDaysCount = this.lerningAndVisitedDaysCount();
+
+        if (lerningAndVisitedDaysCount >= 0.9 && averageMark >= 90) {
+            console.log('Obi Wan taught you well, young Padawan');
+        } else if (lerningAndVisitedDaysCount < 0.9 && averageMark < 90) {
+            console.log(`Houston we have a problem`);
+        } else {
+            console.log('Not bad. But brick not hit back');
+        }
+    }
+
     present() {
-        this.checkAndFillAttendance(true);
+        this.fillInnAttendance(true);
     }
+
     absent() {
-        this.checkAndFillAttendance(false);
+        this.fillInnAttendance(false);
     }
+
 }
 
-let someNewStudent = new Student('Pieter', 'The Grate', 1672);
 
-console.log(someNewStudent);
+let someNewStudent = new Student('Pieter', 'The Grate', 1672, [100, 90, 90]);
+let anotherOneNewStudent = new Student('Stive', 'Jobs', 1955, [10, 50, 60, 80, 100])
+
 someNewStudent.absent();
 someNewStudent.present();
+someNewStudent.present();
+someNewStudent.present();
+someNewStudent.present();
+someNewStudent.present();
+// someNewStudent.present();
 
-// console.log(someNewStudent.getAverageMark());
+anotherOneNewStudent.absent();
+anotherOneNewStudent.absent();
+anotherOneNewStudent.absent();
+anotherOneNewStudent.absent();
+anotherOneNewStudent.present();
 
-console.log(someNewStudent.marks);
 console.log(someNewStudent.getAverageMark());
+console.log(someNewStudent.lerningAndVisitedDaysCount());
+
+console.log(anotherOneNewStudent.getAverageMark());
+console.log(anotherOneNewStudent.lerningAndVisitedDaysCount());
+
+
+someNewStudent.summary();
+anotherOneNewStudent.summary();
+
+
 
 
 
@@ -76,19 +121,6 @@ console.log(someNewStudent.getAverageMark());
 //
 // showInfo(3, 4, 5, 6);
 
-
-// function checkAndFillArray(array, someNUmber) {
-//     let k = 1;
-//     for (let i = 0; i < array.length; i++) {
-//         if (array[i] == undefined) {
-//             array[i] = someNUmber;
-//             break;
-//         }
-//     }
-//     console.log(array);
-// }
-//
-// checkAndFillArray(arr, 10);
 
 
 // не получилось сделать перебор массива ни forEach ни for...of ни for... in
