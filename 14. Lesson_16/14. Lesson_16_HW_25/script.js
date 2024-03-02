@@ -11,34 +11,48 @@ let obj = {
 class SupperMath {
 
 // операторы вынесены в массив для проверки
+
+    operations = {
+        '+': 'addition',
+        '-': 'subtraction',
+        '*': 'multiplication',
+    }
+
     znakVariants = ['+', '-', '*', '/', '%', '^'];
 
 // чтобы знаки "произносились"
-    znakIntoWords(nameOfArray) {
-        let znak = nameOfArray.znak;
 
-        if (znak == '+') {
-            return 'addition';
-        }
-        if (znak == '-') {
-            return 'subtraction';
-        }
-        if (znak == '*') {
-            return 'multiplication';
-        }
-        if (znak == '/') {
-            return 'dividing';
-        }
-        if (znak == '%') {
-            return 'remainder of dividing';
-        }
+    znakIntoWords(znak) {
+        // let znak = nameOfArray.znak;
+//обращаемся к ключу, запрашивая его значения - в аргумент заходит оператор (+, -, * и т.п.) от пользователя
+// который является именем ключа - operations[znak] по имени ключа получаем его значение - слово,
+        return this.operations[znak];
+
+        // if (znak == '+') {
+        //     return 'addition';
+        // }
+        // if (znak == '-') {
+        //     return 'subtraction';
+        // }
+        // if (znak == '*') {
+        //     return 'multiplication';
+        // }
+        // if (znak == '/') {
+        //     return 'dividing';
+        // }
+        // if (znak == '%') {
+        //     return 'remainder of dividing';
+        // }
     }
 
     //подтверждаем текущий объект
     confirmCurrectObjectMath(nameOfArray) {
         let XinObj = nameOfArray.X;
         let YinObj = nameOfArray.Y;
-        let znakInObj = this.znakIntoWords(nameOfArray);
+        let znak = nameOfArray.znak;
+
+        let znakInObj = this.znakIntoWords(znak);
+
         let firstConfirmation = confirm(`Do you really want to ${znakInObj} make with ${XinObj} and ${YinObj}`);
         if (firstConfirmation) {
             //запускаем функцию подсчетов
@@ -65,12 +79,17 @@ class SupperMath {
     // проверка оператора от юзера на соответствие
     // и замены данных в znak
     checkZnak(znakFromUser, nameOfArray) {
-        if (!this.znakVariants.includes(znakFromUser)) {
+        //пользуемся одним объектом и для проверки и для "проговаривания" знаков
+
+        let operatorsArray = Object.keys(this.operations);
+
+        if (!operatorsArray.includes(znakFromUser)) {
             console.log(`You put wrong operator`);
             return;
         } else {
             nameOfArray.znak = znakFromUser;
-            this.makeCalculation(nameOfArray);
+            let result = this.makeCalculation(nameOfArray);
+            console.log(result);
         }
     }
 
@@ -82,19 +101,19 @@ class SupperMath {
         let znak = nameOfArray.znak;
 
         if (znak === '+') {
-            return console.log(numX + numY);
+            return (numX + numY);
         }
         if (znak === '-') {
-            return console.log(numX - numY);
+            return (numX - numY);
         }
         if (znak === '*') {
-            return console.log(numX * numY);
+            return (numX * numY);
         }
         if (znak === '/') {
-            return console.log(numX / numY);
+            return (numX / numY);
         }
         if (znak === '%') {
-            return console.log(numX % numY);
+            return (numX % numY);
         }
 
     }
@@ -112,5 +131,6 @@ class SupperMath {
 let smthngNew = new SupperMath();
 
 smthngNew.checkMath(obj);
+
 
 

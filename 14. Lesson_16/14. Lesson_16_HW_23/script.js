@@ -13,7 +13,11 @@ class Student {
         this.surname = surname;
         this.yearOfBirth = yearOfBirth;
         this.marks = marks;
-        this.attendance.length = 25;
+
+        // this.attendance.length = 25;
+        //длину пустого массива лучше присвоить через new Array
+        //с полупустыми массивами лучше не раболтать - отфильтровать, чтобы был только полный массив - убрать "пропуски"
+        this.attendance = new Array(25);
     }
 
     getAge() {
@@ -32,12 +36,23 @@ class Student {
     }
 
     fillInnAttendance(someNumber) {
-        for (let i = 0; i < this.attendance.length; i++) {
-            if (this.attendance[i] == undefined) {
-                this.attendance[i] = someNumber;
-                break;
-            }
+
+        const indexOfUndefined = this.attendance.findIndex(v => v === undefined);
+        if (indexOfUndefined !== -1) {
+        this.attendance[indexOfUndefined] = someNumber;
+
+        } else {
+            console.log('Array is full');
         }
+
+
+
+        // for (let i = 0; i < this.attendance.length; i++) {
+        //     if (this.attendance[i] == undefined) {
+        //         this.attendance[i] = someNumber;
+        //         break;
+        //     }
+        // }
         console.log(this.attendance);
     }
 
