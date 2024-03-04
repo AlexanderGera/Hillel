@@ -1,6 +1,6 @@
 'use strict'
 
-//ДЗ 27. table
+//ДЗ 28. Виведення зображень
 
 let imgHolder = document.getElementById('img-holder');
 let button = document.getElementById('button');
