@@ -1,0 +1,19 @@
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 35px;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-wrapper img {
+    height: 250px;
+    margin: 25px;
+}
