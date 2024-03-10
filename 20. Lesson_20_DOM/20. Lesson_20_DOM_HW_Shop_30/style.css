@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    /*text-decoration: none;*/
+    color: black;
+    font-size: 16px;
+    line-height: 32px;
+    cursor: pointer;
+}
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wrapper.block-decoration {
+    background-color: #eeeeee;
+}
+
+.navigation_left {
+    width: 250px;
+    height: 70%;
+}
+
+.main {
+    width: 450px;
+    height: 70%;
+    overflow-y: scroll;
+}
+.navigation_right {
+    width: 250px;
+    height: 70%;
+}
+
+.block-decoration {
+    border: 1px solid black;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.block-title {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #1f013b;
+}
+
+.content-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.content-holder.buy_column {
+    height: 320px;
+    justify-content: space-between;
+    color: #1f013b;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 24px;
+}
+
+
+.product-item {
+    width: 200px;
+    height: 125px;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.button_buy.hidden {
+    visibility: hidden;
+}
