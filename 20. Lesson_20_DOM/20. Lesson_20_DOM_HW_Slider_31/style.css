@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    /*text-decoration: none;*/
+    color: black;
+    font-size: 16px;
+    line-height: 32px;
+    cursor: pointer;
+}
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.slider_wrapper {
+    width: 60%;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.slider__button {
+    width: 55px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #c7c2ff;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+.slider__button.hidden{
+    visibility: hidden;
+}
+
+.slider__picture {
+    height: 350px;
+}
+
