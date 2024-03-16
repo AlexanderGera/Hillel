@@ -4,31 +4,37 @@
 
 let placeForList = document.getElementsByClassName('list_holder')[0];
 
-let arrForShow = [1, 2, [3.1, 3.2, 3.3], 4];
+let arrForShow = [1, 2, [3.1, 3.2, 3.3], 4, [[3.1, 3.2, 3.3], 3.2, 3.3]];
 
 
 let firstSimbol = '<ul>';
 let lastSimbol = '</ul>';
-let result = '';
 
-function listMaking() {
+function listMaking(arr) {
+    let result = '';
 
-    arrForShow.forEach((element) => {
+    arr.forEach((element) => {
+
         if (Array.isArray(element)) {
-            result += `${firstSimbol} <li>${element}</li> ${lastSimbol}`;
+            //т.к. элемент массив то обрабатывается той же функцией в которую в качестве аргумента заходит элемента-массив
+            result += `<li>${listMaking(element)}</li>`;
         } else {
             result += `<li>${element}</li>`;
         }
 
     })
 
-    placeForList.innerHTML = firstSimbol + result + lastSimbol;
+
+    return firstSimbol + result + lastSimbol;
 
 
 }
 
-listMaking();
+//вставляется результат работы функции
+placeForList.innerHTML = listMaking(arrForShow);
 
 
-console.log(arrForShow);
+
+
+
 
