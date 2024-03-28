@@ -10,15 +10,24 @@ a {
     cursor: pointer;
 }
 
-.wrapper {
+.wrapper,
+form {
     width: 100%;
     max-width: 1200px;
-    height: 275px;
+    height: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
 
+label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .wrapper.block-decoration {
@@ -31,7 +40,7 @@ a {
 }
 
 .main {
-    width: 450px;
+    width: 500px;
     height: 85%;
 }
 
@@ -48,13 +57,13 @@ a {
     background-color: #ffffff;
     border-radius: 10px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px 20px;
 
 }
 
 .block-title {
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 28px;
     color: #1f013b;
 }
@@ -64,7 +73,8 @@ a {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 5px;
 
 }
 
@@ -88,4 +98,11 @@ a {
 
 .button_buy.hidden {
     visibility: hidden;
+}
+
+.input_name {
+    width: 100%;
+}
+.input_quantity {
+    width: 30%;
 }
