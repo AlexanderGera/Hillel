@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 24 - Form - Registration Form HW 35</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+Lesson 24 - Form - Registration Form HW 35
+<div class="wrapper block-decoration">
+
+    <div class="form_holder block-decoration" id="form_holder">
+        <form action="">
+            <div><label class="registration_labels" for="surname">Фамилия:</label>
+                <input type="text" name="customerSurname" placeholder="Ваша фамилия" id="surname">
+            </div>
+            <div><label class="registration_labels" for="name">Имя:</label>
+                <input type="text" name="customerName" placeholder="Ваше имя" id="name">
+            </div>
+            <div><label class="registration_labels" for="g_date">Дата рождения:</label>
+                <input type="date" name="customerBirthDate" id="g_date"></div>
+            <div>
+                <span class="label_subtitle">Укажите пол:</span>
+                <label for="genderMan">Мужской: <input type="radio" id="genderMan" name="gender"
+                                                       value="genderMan"></label>
+                <label for="genderWoman">Женский: <input type="radio" id="genderWoman" name="gender"
+                                                         value="genderWoman"></label>
+            </div>
+            <div><label class="registration_labels" for="customerCity">Укажите город:</label>
+                <select id="customerCity"></select>
+            </div>
+            <div><label class="registration_labels" for="customerAddress">Укажите адрес:</label>
+                <textarea id="customerAddress" name="customerAddress"></textarea>
+            </div>
+            <div>
+                <span class="label_subtitle">Укажите языки которыми владеете:</span>
+                <div class="language_holder">
+                    <label>Русский: <input type="checkbox" id="lang_rus" name="lang"
+                                           value="Russian"></label>
+
+                    <label>Украински: <input type="checkbox" id="lang_ukr" name="lang" value="Ukrainian"></label>
+                    <label>English: <input type="checkbox" id="lang_engl" name="lang" value="English"></label>
+                    <label>Deutsch: <input type="checkbox" id="lang_de" name="lang" value="Deutsch"></label>
+                    <label>Espanol: <input type="checkbox" id="lang_esp" name="lang" value="Spanish"></label>
+                    <label>Italian: <input type="checkbox" id="lang_it" name="lang" value="Italian"></label>
+                    <label>Others: <input type="checkbox" id="lang_others" name="lang" value="others"></label>
+                </div>
+            </div>
+            <button type="submit" id="submit_button">Press to Submit form</button>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
