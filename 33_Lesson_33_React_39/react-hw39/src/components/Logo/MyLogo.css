@@ -1,8 +1,8 @@
  .my_logo {
     width: 150px;
     height: 50px;
-    border: 1px solid blue;
+    border: 1px solid red;
     border-radius: 5px;
     font-size: 16px;
-    color: blue;
+    color: red;
 }

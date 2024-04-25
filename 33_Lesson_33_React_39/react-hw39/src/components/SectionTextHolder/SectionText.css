@@ -1,0 +1,9 @@
+.section_text {
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: black;
+    text-align: start;
+}
