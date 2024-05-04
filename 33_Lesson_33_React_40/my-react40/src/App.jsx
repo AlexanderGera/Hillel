@@ -18,6 +18,13 @@ function App() {
         Bad: '',
     });
 
+    let [smileWinnerName, setSmileWinnerName] = useState('');
+
+    let[numberWinner, setNumberWinner] = useState(0);
+
+    let [lastButton, setLastButton] = useState('');
+
+
 // функция которая передает данные при клике в объект для хранения
     function saveVoteResult(lastButtonName, counter) {
         let result = {
@@ -29,7 +36,7 @@ function App() {
 
 // подсчеты голосования
 
-    let [lastButton, setLastButton] = useState('');
+
 
     function lastButtonPress(lastButtonName, counter) {
         setLastButton(lastButtonName);
@@ -45,23 +52,22 @@ function App() {
         let resulToShow = {
             ...voteObject
         };
-        let result = '';
+        let winnerName = '';
         let testArr = Object.values(resulToShow);
         let maxNumber = Math.max(...testArr);
         for (let key in resulToShow) {
             if (resulToShow[key] == maxNumber) {
-                result = key;
+                winnerName = key;
             }
         }
-        return result;
+        setSmileWinnerName(winnerName);
+        setNumberWinner(maxNumber);
 
     }
 
-    let [resultKeeper, setResult] = useState('');
 
-    function showResult () {
-        setResult(countResult);
-    }
+
+
 
     // let test = {Nice: 1, Normal: 4, Bad: 3};
     // let searchedKey = Object.values(test).find((element) => test[element] == 3);
@@ -112,8 +118,8 @@ function App() {
             </MainContentHolder>
 
             <div>
-                <h2>I pressed smile: "{lastButton}" {resultKeeper}</h2>
-                <ButtonResult text='Result is'  showResultFunction={showResult}/>
+                <h2>Smile {smileWinnerName} has {numberWinner} clicks</h2>
+                <ButtonResult text='press for result'  showResultFunction={countResult}/>
 
                 {/*--------------- эксперементы со стилями ----------------------------                */}
                 {/*<ButtonResult className="special" text="Эксперемент 1"/>*/}

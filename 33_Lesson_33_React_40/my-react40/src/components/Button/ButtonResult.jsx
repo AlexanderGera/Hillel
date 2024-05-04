@@ -24,7 +24,7 @@ export function ButtonResult(props) {
         className={`my_button ${className} ${someNewStyle ? 'someNewStyle' : `my_button`}`} style={buttonStyle}
         onClick={handlClick}
     >
-        {text} -
+        {text}
     </button>;
 
 }
