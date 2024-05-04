@@ -1,0 +1,15 @@
+
+
+.button_votes {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #a10131;
+
+
+}
+
+
+.button_votes, :focus,
+.button_votes :focus-visible {
+    outline: none !important;
+}

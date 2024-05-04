@@ -1,0 +1,10 @@
+.main_content-holder {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6daff;
+    border-radius: 15px;
+}

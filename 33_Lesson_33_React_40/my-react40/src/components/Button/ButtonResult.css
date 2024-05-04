@@ -1,0 +1,28 @@
+.my_button {
+
+    background-color: white;
+    border: 1px solid #a10131;
+    border-radius: 10px;
+}
+
+.my_button:hover {
+    border: 2px solid #a10131;
+    background-color: white;
+}
+
+.my_button:focus,
+.my_button:focus-visible {
+    outline: none;
+}
+
+.special {
+    border: 2px solid green;
+}.special:hover {
+    border: 3px solid green;
+}
+
+ .someNewStyle {
+     border: 2px solid #ffc302;
+     background-color: #4f4fff;
+     color: #ffc302;
+ }
