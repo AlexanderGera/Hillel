@@ -19,18 +19,20 @@ function App() {
     });
 
 // функция которая передает данные при клике в объект для хранения
-function saveVoteResult(lastButtonName, counter) {
-        setVoteObject(() => {
-            voteObject[lastButtonName] = counter;
-        })
-}
+    function saveVoteResult(lastButtonName, counter) {
+        let result = {
+            ...voteObject
+        };
+        result[lastButtonName] = counter;
+        setVoteObject(result);
+    }
 
 // подсчеты голосования
 
     let [lastButton, setLastButton] = useState('');
 
     function lastButtonPress(lastButtonName, counter) {
-        setLastButton(lastButtonName)
+        setLastButton(lastButtonName);
         console.log(`name of Key is ${lastButtonName}. Clecked ${counter} times `);
 
         //здесь все ломается
@@ -38,13 +40,36 @@ function saveVoteResult(lastButtonName, counter) {
 
     }
 
-// эта функция должна выводить результат голосования - объект где хранятся данные
-    function showResult () {
-        console.log(voteObject);
+// эта функция должна считать результат голосования - из объект где хранятся данные
+    function countResult() {
+        let resulToShow = {
+            ...voteObject
+        };
+        let result = '';
+        let testArr = Object.values(resulToShow);
+        let maxNumber = Math.max(...testArr);
+        for (let key in resulToShow) {
+            if (resulToShow[key] == maxNumber) {
+                result = key;
+            }
+        }
+        return result;
+
     }
 
+    let [resultKeeper, setResult] = useState('');
 
-    {/*--------------- эксперементы со стилями ----------------------------                */}
+    function showResult () {
+        setResult(countResult);
+    }
+
+    // let test = {Nice: 1, Normal: 4, Bad: 3};
+    // let searchedKey = Object.values(test).find((element) => test[element] == 3);
+    // console.log(searchedKey);
+
+
+    {/*--------------- эксперементы со стилями ----------------------------                */
+    }
     // let MyButtonNewStyle = {
     //     backgroundColor: 'red',
     //     color: 'white',
@@ -61,7 +86,7 @@ function saveVoteResult(lastButtonName, counter) {
         <>
             <MainContentHolder>
 
-      {/*-------------- не знал как вписать пропсы и решил сначала сделать тем путем который понятен -------------          */}
+                {/*-------------- не знал как вписать пропсы и решил сначала сделать тем путем который понятен -------------          */}
                 {/*<CounterWrapper>*/}
                 {/*    <LinkForVote>*/}
                 {/*        <img src={angrySmile} alt="Not satisfied"/>*/}
@@ -87,10 +112,10 @@ function saveVoteResult(lastButtonName, counter) {
             </MainContentHolder>
 
             <div>
-                <h2>I pressed smile: "{lastButton}"</h2>
-                <ButtonResult text='Result is' showResultFunction={showResult} />
+                <h2>I pressed smile: "{lastButton}" {resultKeeper}</h2>
+                <ButtonResult text='Result is'  showResultFunction={showResult}/>
 
-{/*--------------- эксперементы со стилями ----------------------------                */}
+                {/*--------------- эксперементы со стилями ----------------------------                */}
                 {/*<ButtonResult className="special" text="Эксперемент 1"/>*/}
                 {/*<ButtonResult buttonStyle={MyButtonNewStyle} text="Эксперемент 2"/>*/}
                 {/*<ButtonResult someNewStyle={true} text="Эксперемент 3"/>*/}

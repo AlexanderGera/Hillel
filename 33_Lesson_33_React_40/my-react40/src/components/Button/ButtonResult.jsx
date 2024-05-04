@@ -4,10 +4,11 @@ import {useState} from "react";
 
 export function ButtonResult(props) {
     let {className, text, buttonStyle, someNewStyle, showResultFunction} = props;
-    let [counter, setCounter] = useState(0);
+
 
     function handlClick() {
         showResultFunction();
+
     }
 
     return <button
@@ -23,7 +24,7 @@ export function ButtonResult(props) {
         className={`my_button ${className} ${someNewStyle ? 'someNewStyle' : `my_button`}`} style={buttonStyle}
         onClick={handlClick}
     >
-        {text} - {counter}
+        {text} -
     </button>;
 
 }
