@@ -91,8 +91,3 @@ getSmilesVotes(smilesAll);
 console.log(votesStorageArray);
 
 
-
-
-
-
-

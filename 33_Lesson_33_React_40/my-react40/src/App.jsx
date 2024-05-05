@@ -42,9 +42,7 @@ function App() {
         setLastButton(lastButtonName);
         console.log(`name of Key is ${lastButtonName}. Clecked ${counter} times `);
 
-        //здесь все ломается
         saveVoteResult(lastButtonName, counter);
-
     }
 
 // эта функция должна считать результат голосования - из объект где хранятся данные
@@ -64,10 +62,6 @@ function App() {
         setNumberWinner(maxNumber);
 
     }
-
-
-
-
 
     // let test = {Nice: 1, Normal: 4, Bad: 3};
     // let searchedKey = Object.values(test).find((element) => test[element] == 3);
@@ -129,6 +123,8 @@ function App() {
                 {/*/Эксперемент 4 - присвоить стили и техст из объекта через спред оператор*/}
                 {/*<ButtonResult {...SomeNewStyle} />*/}
             </div>
+
+
 
 
         </>
