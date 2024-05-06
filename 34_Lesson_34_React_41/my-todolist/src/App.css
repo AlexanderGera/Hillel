@@ -1,6 +1,78 @@
 #root {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+.header {
+    width: 80%;
+    height: 60px;
+    background: #f385a7;
+
+}
+
+.header_title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f013b;
+}
+
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+
+}
+
+.todo_input {
+    width: 70%;
+    height: 40px;
+    max-width: 350px;
+    border: 1px solid #1f013b;
+}
+
+
+.task_list,
+.delete_task,
+.task_list_ready {
+    cursor: pointer;
+}
+
+
+.delete_task {
+    width: 50px;
+    height: 25px;
+    border: 1px solid #1f013b;
+    border-radius: 5px;
+    background-color: #d6daff;
+}
+
+.delete_task:hover {
+    border: 2px solid #1f013b;
+}
+
+.todo_task-container {
+    width: 70%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #1f013b;
+    border-radius: 5px;
+    background: white;
+    padding: 5px;
+}
+
+.task_list {
+    display: inline-block;
+}
+
+.task_list_ready {
+    text-decoration: line-through;
 }
