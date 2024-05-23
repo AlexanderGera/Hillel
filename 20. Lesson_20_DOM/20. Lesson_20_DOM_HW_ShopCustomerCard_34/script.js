@@ -110,6 +110,7 @@ function findProductDescriptionInObject(menuItem) {
     placeForProductsList.addEventListener('click', function (event) {
 
         event.preventDefault();
+
         let clickedLink = event.target;
         let allTheLinksArray = Array.from(placeForProductsList.getElementsByClassName('product_link'));
         let menuIndex = allTheLinksArray.indexOf(clickedLink);

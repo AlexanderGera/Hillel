@@ -1,0 +1,107 @@
+//VARIABLES
+
+// fonts
+
+$titels-text-font: 'Montserrat',
+sans-serif;
+$regular-text-font: 'Open Sans',
+sans-serif;
+$some-spare-font-1: 'Lato',
+sans-serif;
+$lang-fonts: 'Roboto',
+sans-serif;
+
+
+// //colors & gradients
+
+$header-background: #f3f3f3;
+$section-border-style: 1px solid rgba(85, 183, 255, 0.5);
+$blue-main-color: #55B7FF;
+$title-font-color: #2C4058;
+
+
+// $welcome-slide-gradient: linear-gradient(243.43deg, #7E5AFF 16.9%, #55B7FF 83.27%);
+// $blue-rectangl-color: #55B7FF;
+// $violet-rectangl-color: #7E5AFF;
+// $news-slide-gradient: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
+// $footer-slide-gradient: linear-gradient(251.06deg, #7E5AFF -2.19%, #55B7FF 103.21%);
+
+
+//mixins
+
+@mixin header-menu-font-settings {
+  font-family: $regular-text-font;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  // text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.90;
+}
+
+@mixin header-language-font-settings {
+  font-family: $lang-fonts;
+  color: #051445;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+}
+
+
+@mixin title-font-settings {
+  font-family: $titels-text-font;
+  color: $title-font-color;
+  text-transform: uppercase;
+}
+
+@mixin regular-text-font-style {
+  font-family: $regular-text-font;
+  color: #2C4058;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+}
+
+@mixin button-regular-decoration {
+  display: block;
+  background: none;
+  border: 1px solid #2C4058;
+  border-radius: 10px;
+  @include regular-text-font-style;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+
+
+
+// @mixin subtitle-font-settings {
+//     font-family: $titels-text-font;
+//     font-size: 22px;
+//     font-weight: 400;
+//     line-height: 27px;
+//     color: $title-font-color;
+//     text-transform: uppercase;
+// }
+
+
+// @mixin regular-button {
+//     width: 190px;
+//     height: 50px;
+//     border: 1px solid #2C4058;
+//     font-size: $titels-text-font;
+//     font-weight: 400;
+//     font-size: 14px;
+//     line-height: 17px;
+//     letter-spacing: 0.1em;
+//     background: none;
+//     text-transform: uppercase;
+//     cursor: pointer;
+
+// }
