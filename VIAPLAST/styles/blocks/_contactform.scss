@@ -41,7 +41,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-
   }
 
   &__input {
@@ -62,6 +61,44 @@
     height: 80px;
     overflow: auto;
     resize: none;
+  }
+
+  // adopt. style for screen 830px
+
+
+  @media screen and (max-width: 830px) {
+      height: 775px;
+  }
+
+}
+
+// adopt. style for screen 801px
+
+@media screen and (max-width: 801px) {
+
+  .contact-form__column {
+    align-items: center;
+  }
+}
+
+// adopt. style for screen 481px
+
+@media screen and (max-width: 481px) {
+  .contact-form__column {
+    min-width: 300px;
+  }
+
+}
+
+// adopt. style for screen 340px
+
+@media screen and (max-width: 340px) {
+  .contact-form__column {
+    min-width: 280px;
+  }
+
+  .contact-form__input {
+    min-width: 250px;
   }
 
 }

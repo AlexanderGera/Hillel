@@ -1,6 +1,7 @@
 
 'use strict';
 
+
 //hamburger menu
 
 let headerMenu = document.getElementsByClassName('header-menu')[0];
@@ -24,6 +25,21 @@ function closeMenuOnClick() {
     headerMenu.classList.remove('active');
     hamburgerMenu.classList.remove('active');
 
+}
+
+//language buttons styles changing
+
+let pageLanguage = document.documentElement.lang;
+let ukrLangButtton = document.getElementById('ukr_lang');
+let englLangButton = document.getElementById('eng_lang');
+
+if (pageLanguage === 'uk') {
+    ukrLangButtton.classList.add('active');
+    englLangButton.classList.remove('active');
+
+} else {
+    ukrLangButtton.classList.remove('active');
+    englLangButton.classList.add('active');
 }
 
 

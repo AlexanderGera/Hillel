@@ -19,15 +19,14 @@ $section-border-style: 1px solid rgba(85, 183, 255, 0.5);
 $blue-main-color: #55B7FF;
 $title-font-color: #2C4058;
 
-
-// $welcome-slide-gradient: linear-gradient(243.43deg, #7E5AFF 16.9%, #55B7FF 83.27%);
-// $blue-rectangl-color: #55B7FF;
-// $violet-rectangl-color: #7E5AFF;
-// $news-slide-gradient: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
-// $footer-slide-gradient: linear-gradient(251.06deg, #7E5AFF -2.19%, #55B7FF 103.21%);
-
-
 //mixins
+
+@mixin header-footer-background-decoration {
+  background: url(../img/icons/city_bg.png), linear-gradient(251.06deg, #3C7FD4 -2.19%, #55B7FF 103.21%);
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 @mixin header-menu-font-settings {
   font-family: $regular-text-font;
@@ -35,7 +34,6 @@ $title-font-color: #2C4058;
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
-  // text-transform: uppercase;
   letter-spacing: 0.15em;
   opacity: 0.90;
 }
@@ -77,6 +75,8 @@ $title-font-color: #2C4058;
   letter-spacing: 0.05em;
   cursor: pointer;
 }
+
+
 
 
 

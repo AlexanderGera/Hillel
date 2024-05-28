@@ -1,12 +1,9 @@
 
 .header {
-    width: 100%;
-    height: 120px;
-    background: url("../img/icons/city_bg.png"), linear-gradient(251.06deg, #3C7FD4 -2.19%, #55B7FF 103.21%);
-    background-position: bottom center;
-    background-size: cover;
-    margin-bottom: 45px;
-
+  @include header-footer-background-decoration;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 45px;
 
   &__content-holder {
     width: 100%;
@@ -20,7 +17,7 @@
 
   }
 
-  &__logo {
+  .logo {
     height: 80px;
     border-radius: 5px;
   }
@@ -233,7 +230,7 @@
 // adopt. style for screen 801px
 
 @media screen and (max-width: 801px) {
-  .header__bg {
+  .header {
     margin-bottom: 30px;
   }
 }
@@ -243,30 +240,27 @@
 
 @media screen and (max-width: 601px) {
   .header {
-    &__bg {
-      height: 80px;
-    }
+    height: 80px;
 
     &__content-holder {
       height: 80px;
     }
 
-    &__logo {
-      height: 50px;
+    .logo {
+      height: 65px;
     }
   }
 
   .header-menu.active {
     top: 79px;
   }
-
 }
 
 // adopt. style for screen 481px
 
 @media screen and (max-width: 481px) {
 
-  .header__bg {
+  .header {
     margin-bottom: 20px;
   }
 
