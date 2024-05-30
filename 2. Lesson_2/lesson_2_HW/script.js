@@ -15,6 +15,3 @@ let customersNumberModification = customersNumber.toString().split('').join(' ')
 
 alert(`Second Task: ${customersNumberModification}`);
 
-
-
-

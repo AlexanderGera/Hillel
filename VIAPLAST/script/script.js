@@ -30,16 +30,16 @@ function closeMenuOnClick() {
 //language buttons styles changing
 
 let pageLanguage = document.documentElement.lang;
-let ukrLangButtton = document.getElementById('ukr_lang');
-let englLangButton = document.getElementById('eng_lang');
+let ukrLangButton = document.getElementById('ukr_lang');
+let engLangButton = document.getElementById('eng_lang');
 
 if (pageLanguage === 'uk') {
-    ukrLangButtton.classList.add('active');
-    englLangButton.classList.remove('active');
+    ukrLangButton.classList.add('active');
+    engLangButton.classList.remove('active');
 
 } else {
-    ukrLangButtton.classList.remove('active');
-    englLangButton.classList.add('active');
+    ukrLangButton.classList.remove('active');
+    engLangButton.classList.add('active');
 }
 
 
