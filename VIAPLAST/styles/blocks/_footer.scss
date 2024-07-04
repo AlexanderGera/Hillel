@@ -53,14 +53,11 @@
     font-size: 13px;
     opacity: 0.8;
   }
-
-
 }
 
 // adopt. style for screen 1025px
 
 @media screen and (max-width: 1025px) {
-
   .footer__menu-links_holder {
     display: none;
   }
@@ -68,5 +65,4 @@
   .footer__content-holder {
     justify-content: space-around;
   }
-
 }

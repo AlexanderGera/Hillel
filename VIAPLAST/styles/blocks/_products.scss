@@ -36,14 +36,10 @@
     line-height: 32px;
     text-transform: none;
   }
-
 }
 
-
 //style for screen changing
-
 @media screen and (max-width: 884px) {
-
   .product-section-holder__description-holder {
     align-items: center;
 
@@ -51,13 +47,10 @@
       text-align: center;
     }
   }
-
 }
 
 // adopt. style for screen 769px
-
 @media screen and (max-width: 769px) {
-
   .section-title-header {
     margin-bottom: 25px;
   }
@@ -70,14 +63,10 @@
   .product-section-holder__description-holder {
     gap: 20px;
   }
-
 }
 
-
 // adopt. style for screen 376px
-
 @media screen and (max-width: 376px) {
-
   .product-section-holder__picture {
     width: 315px;
   }
@@ -86,7 +75,6 @@
     font-size: 24px;
     line-height: 30px;
   }
-
 }
 
 // adopt. style for screen 325px
@@ -101,5 +89,4 @@
     font-size: 22px;
     line-height: 28px;
   }
-
 }

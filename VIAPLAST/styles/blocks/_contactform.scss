@@ -10,7 +10,7 @@
   &__wrapper {
     width: 100%;
     max-width: 850px;
-    min-height: 450px;
+    min-height: 435px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0px -4px 16px -2px rgba(75, 85, 98, 0.2);
@@ -31,16 +31,14 @@
     .map-icon-style {
       color: #7E5AFe;
     }
-
   }
 
   &__column {
     min-width: 350px;
-    height: 250px;
+    height: 265px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
   }
 
   &__input {
@@ -48,12 +46,25 @@
     min-width: 300px;
     outline: none;
     font-family: $regular-text-font;
+    font-size: 15px;
+    letter-spacing: 0.03em;
     border: none;
     border-bottom: 1px solid black;
 
     &::placeholder {
       color: rgba(160, 160, 162, 0.6);
+    }
 
+    &:focus {
+      border-bottom: 1px solid #7E5AFe;
+
+      &::placeholder {
+        color: #af9bff;
+      }
+    }
+    &._error {
+      border-bottom: 1px solid red;
+      background: #ffc6c6;
     }
   }
 
@@ -65,33 +76,27 @@
 
   // adopt. style for screen 830px
 
-
   @media screen and (max-width: 830px) {
-      height: 775px;
+    height: 775px;
   }
-
 }
 
 // adopt. style for screen 801px
 
 @media screen and (max-width: 801px) {
-
   .contact-form__column {
     align-items: center;
   }
 }
 
 // adopt. style for screen 481px
-
 @media screen and (max-width: 481px) {
   .contact-form__column {
     min-width: 300px;
   }
-
 }
 
 // adopt. style for screen 340px
-
 @media screen and (max-width: 340px) {
   .contact-form__column {
     min-width: 280px;
@@ -100,5 +105,4 @@
   .contact-form__input {
     min-width: 250px;
   }
-
 }

@@ -1,8 +1,19 @@
-
 'use strict';
 
+// -------------- slow scroll to anchor
 
-//hamburger menu
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+// -------------- hamburger menu
 
 let headerMenu = document.getElementsByClassName('header-menu')[0];
 let hamburgerMenu = document.getElementsByClassName('hamburger-menu')[0];
@@ -27,7 +38,7 @@ function closeMenuOnClick() {
 
 }
 
-//language buttons styles changing
+// ------------- language buttons styles changing
 
 let pageLanguage = document.documentElement.lang;
 let ukrLangButton = document.getElementById('ukr_lang');
@@ -40,6 +51,110 @@ if (pageLanguage === 'uk') {
 } else {
     ukrLangButton.classList.remove('active');
     engLangButton.classList.add('active');
+}
+
+//------ Gallery big image open
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    let previewLinks = document.querySelectorAll('.product-card__product-preview-link');
+
+    previewLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            let bigPicture = document.querySelector('.item_big-picture');
+            let previewImageSrc = this.href;
+            bigPicture.src = previewImageSrc;
+        });
+    });
+});
+
+// ---------- form sanding
+
+let contactForm = document.getElementById('contactForm');
+let buttonSend = document.getElementById('buttonSend');
+let listOfInputs = document.getElementsByClassName('contact-form__input');
+
+//not send the form when key Enter pressed
+enterShutDown();
+
+function enterShutDown() {
+    Array.from(listOfInputs).forEach((element) => {
+        element.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+            }
+        });
+    });
+}
+
+function formValidation() {
+    let isValid = true;
+    Array.from(listOfInputs).forEach((element) => {
+        element.classList.remove('_error');
+        if (element.value.trim() === "") {
+            element.classList.add('_error');
+            isValid = false;
+        } else if (element.type === 'email') {
+            if (!emailChecking(element)) {
+                element.classList.add('_error');
+                isValid = false;
+            }
+        }
+    });
+
+    return isValid;
+}
+
+
+function emailChecking(element) {
+    let stringForEmailTesting = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return stringForEmailTesting.test(element.value);
+}
+
+
+contactForm.addEventListener('submit', (event) => {
+    if (!formValidation()) {
+        event.preventDefault();
+    } else {
+        formSending(event, contactForm);
+    }
+
+});
+
+//send information from Form to E-mail
+function formSending(event, form) {
+    event.preventDefault();
+
+    // gather data from inputs of form
+    let formData = new FormData(form);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "/mailer/smart.php", true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // clear all inputs
+            Array.from(listOfInputs).forEach(function (element) {
+                element.value = "";
+            });
+
+            // reset form
+            (form).reset();
+        }
+    };
+
+    xhr.send(formData);
+}
+
+
+
+//------- open window 404 when english lang click
+
+engLangButton.addEventListener('click',openNoPage);
+
+function openNoPage() {
+    window.open('/404.html', '_self');
 }
 
 
