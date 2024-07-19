@@ -158,3 +158,10 @@ function openNoPage() {
 }
 
 
+// --- iframe with Youtube-script insert
+
+let divYouTubeHolder = document.getElementsByClassName('main-page-intro__video-holder')[0];
+divYouTubeHolder.innerHTML = `<iframe src="https://www.youtube.com/embed/Sf7uAlDO4p0?controls=0" title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>`;
+
