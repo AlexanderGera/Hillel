@@ -1,4 +1,3 @@
-
 // fonts style and bottom style
 
 .title-font-style {
@@ -161,6 +160,7 @@ a {
   &__text-holder,
   &__video-holder {
     width: calc(50% - 30px);
+
   }
 
   &__video-holder iframe {
@@ -169,6 +169,18 @@ a {
     aspect-ratio: 16/9;
   }
 }
+
+.scroll_animation {
+  opacity: 0;
+  transform: translateY(150px);
+}
+
+.scroll_animation.active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.5s ease-in-out;
+}
+
 
 .main-page-product {
   width: 100%;

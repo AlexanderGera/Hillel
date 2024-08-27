@@ -148,10 +148,9 @@ function formSending(event, form) {
 }
 
 
-
 //------- open window 404 when english lang click
 
-engLangButton.addEventListener('click',openNoPage);
+engLangButton.addEventListener('click', openNoPage);
 
 function openNoPage() {
     window.open('/404.html', '_self');
@@ -161,7 +160,33 @@ function openNoPage() {
 // --- iframe with Youtube-script insert
 
 let divYouTubeHolder = document.getElementsByClassName('main-page-intro__video-holder')[0];
-divYouTubeHolder.innerHTML = `<iframe src="https://www.youtube.com/embed/Sf7uAlDO4p0?controls=0" title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>`;
+if (divYouTubeHolder) {
+    divYouTubeHolder.innerHTML =
+        `<iframe src="https://www.youtube.com/embed/Sf7uAlDO4p0?controls=0" title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+        </iframe>`;
+}
+
+// ---- scroll animation ----
+
+let itemsForAnimation = document.querySelectorAll('.scroll_animation');
+
+
+let newObserver = new IntersectionObserver(makeItemVisible, {
+    threshold: 0.1,
+    rootMargin: "35px",
+});
+
+function makeItemVisible(entries, newObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}
+
+itemsForAnimation.forEach(items => {
+    newObserver.observe(items);
+})
 

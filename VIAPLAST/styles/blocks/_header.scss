@@ -181,13 +181,13 @@
     background: linear-gradient(251.06deg, rgba(60, 127, 209, 0.98) -30.19%, rgba(85, 183, 241, 0.98) 103.21%);
     z-index: 2;
     opacity: 0;
-    transition: top 0.6s, opacity 0.4s, width 0.2s ease-in-out;
+    transition: top 0.3s, opacity 0.1s, width 0.1s ease-in-out;
 
     &.active {
       width: 100%;
       top: 119px;
       opacity: 1;
-      transition: width 0.2s ease-in-out;
+      transition: width 0.3s ease-in-out;
     }
 
     &__link-holder {
